@@ -1,0 +1,31 @@
+{
+  "name": "ridewave",
+  "version": "0.1.0",
+  "private": true,
+  "description": "RideWave e-hailing platform (local development monorepo)",
+  "engines": {
+    "node": ">=20.11.0"
+  },
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "check:env": "node scripts/check-environment.js",
+    "dev": "concurrently -n api,web -c cyan,green \"npm run dev -w @ridewave/api\" \"npm run dev -w @ridewave/web\"",
+    "dev:api": "npm run dev -w @ridewave/api",
+    "dev:web": "npm run dev -w @ridewave/web",
+    "build": "npm run build -w @ridewave/api && npm run build -w @ridewave/web",
+    "lint": "npm run lint -w @ridewave/api && npm run lint -w @ridewave/web",
+    "typecheck": "npm run typecheck -w @ridewave/api && npm run typecheck -w @ridewave/web",
+    "test": "npm run test -w @ridewave/api && npm run test -w @ridewave/web",
+    "db:generate": "npm run db:generate -w @ridewave/api",
+    "db:migrate": "npm run db:migrate -w @ridewave/api --",
+    "db:seed": "node scripts/seed.js",
+    "db:reset": "node scripts/reset-db.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

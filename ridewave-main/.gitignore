@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.db
+*.db-journal
+apps/api/prisma/*.db
+apps/api/storage/
+playwright-report/
+test-results/
+.DS_Store
+*.log

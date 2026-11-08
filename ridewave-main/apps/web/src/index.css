@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { @apply bg-page text-navy-900 antialiased scroll-smooth; }
+  body { @apply font-sans; }
+  :focus-visible { @apply outline-none ring-2 ring-sky-500 ring-offset-2; }
+}
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .section { @apply py-16 sm:py-24; }
+  .eyebrow { @apply text-sm font-semibold uppercase tracking-widest text-accent-dark; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
